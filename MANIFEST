@@ -29,5 +29,6 @@ t/strict.t
 t/taint.t
 t/twitter.t
 t/untaint.t
+t/unused.t
 t/used.t
 t/vars.t

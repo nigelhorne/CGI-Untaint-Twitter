@@ -24,6 +24,5 @@ if($@) {
 # 
 		# $untainter->extract(-as_Twitter => 'twitter1');
 	# }, 'Access tokens are required');
-
-	done_testing();
 }
+done_testing();
