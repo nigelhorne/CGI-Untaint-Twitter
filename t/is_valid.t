@@ -3,15 +3,12 @@
 use strict;
 use Test::Most;
 
-BEGIN {
-	require_ok('CGI::Untaint::Twitter');
-}
-
 eval 'use Test::Carp';
 
 if($@) {
 	plan skip_all => 'Test::Carp needed to check error messages';
 } else {
+	use_ok('CGI::Untaint::Twitter');
 	# Doesn't work - I mean it fails this test even though the carp is done
 	# does_carp_that_matches(sub {
 		# use_ok('CGI::Untaint');

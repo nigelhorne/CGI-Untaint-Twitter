@@ -18,6 +18,7 @@ t/is_valid.t
 t/kwalitee.t
 t/manifest.t
 t/metrics.t
+t/namespaces.t
 t/noplan.t
 t/pod-cm.t
 t/pod.t
