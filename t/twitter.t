@@ -1,7 +1,7 @@
 #!perl -wT
 
 use strict;
-use Test::Most tests => 20;
+use Test::Most tests => 22;
 
 BEGIN {
 	require_ok('CGI::Untaint::Twitter');
@@ -24,6 +24,13 @@ TWITTER: {
 	ok('%%*%' !~ $regex, 'invalid Twitter ID');
 
 	use_ok('CGI::Untaint');
+	my $undef_vars = {
+		twitter1 => undef,
+	};
+	my $untainter = new_ok('CGI::Untaint' => [ $undef_vars ]);
+	my $c = $untainter->extract(-as_Twitter => 'twitter1');
+	is($c, undef, 'undefined');
+
 	SKIP: {
 		# To run the test, comment out the skip line then enter your
 		# consumer_key/secret and access_token/secret stuff to the use_ok
