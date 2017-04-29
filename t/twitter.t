@@ -1,7 +1,7 @@
 #!perl -wT
 
 use strict;
-use Test::Most tests => 22;
+use Test::Most tests => 23;
 
 BEGIN {
 	require_ok('CGI::Untaint::Twitter');
@@ -35,7 +35,7 @@ TWITTER: {
 		# To run the test, comment out the skip line then enter your
 		# consumer_key/secret and access_token/secret stuff to the use_ok
 		# in the BEGIN section
-		skip 'Twitter API1.1 needs authentication', 15;
+		skip 'Twitter API1.1 needs authentication', 16;
 
 		my $vars = {
 		    twitter1 => 'nigelhorne',
@@ -52,6 +52,7 @@ TWITTER: {
 		    twitter12 => 'SlinfoldCB ',
 		    twitter13 => '@SlinfoldCB ',
 		    twitter14 => 'slinfoldcb',
+		    twitter15 => '@a@b',
 		};
 
 		my $untainter = new_ok('CGI::Untaint' => [ $vars ]);
@@ -97,5 +98,8 @@ TWITTER: {
 
 		$c = $untainter->extract(-as_Twitter => 'twitter14');
 		is($c, 'slinfoldcb', '@SlinfoldCB');
+
+		$c = $untainter->extract(-as_Twitter => 'twitter15');
+		is($c, 'undef', 'at sign misplaced');
 	}
 }

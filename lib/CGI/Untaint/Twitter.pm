@@ -52,7 +52,7 @@ sub _untaint_re {
 	# Only allow letters and digits
 	# Remove the leading @ if any - leading spaces and so on will be
 	# ignored
-	return qr/\@?([a-zA-z0-9]+)/;
+	return qr/^\@?([a-zA-z0-9]+)$/;
 }
 
 sub is_valid {

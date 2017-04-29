@@ -12,3 +12,5 @@ pod2htm*.tmp
 .git
 *.swp
 CGI-Untaint-Twitter-*
+.travis.yml
+.appveyor.yml
