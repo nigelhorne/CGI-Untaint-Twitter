@@ -1,6 +1,15 @@
 use strict;
 use warnings;
-use ExtUtils::MakeMaker;
+use ExtUtils::MakeMaker 6.64;	# 6.64 for TEST_REQUIRES
+
+my $dist = {
+	COMPRESS => 'gzip -9f',
+	SUFFIX => 'gz'
+};
+
+if($^O eq 'darwin') {
+	$dist->{'TAR'} = 'gtar';
+}
 
 WriteMakefile(
     NAME                => 'CGI::Untaint::Twitter',
@@ -12,13 +21,15 @@ WriteMakefile(
       : ()),
     PL_FILES            => {},
     PREREQ_PM => {
-        'Test::Most' => 0,
 	'CGI::Untaint' => 0,
-	'Test::NoWarnings' => 0,
 	'Net::Twitter::Lite::WithAPIv1_1' => 0,
-	# 'Test::Kwalitee' => 0,
-    },
-    dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
+	}, TEST_REQUIRES => {
+		'Test::DescribeMe' => 0,
+		# 'Test::Kwalitee' => 0,
+		'Test::Most' => 0,
+		'Test::Needs' => 0,
+		'Test::NoWarnings' => 0
+	}, dist => $dist,
     clean               => { FILES => 'CGI-Untaint-Twitter-*' },
     META_MERGE		=> {
     	'meta-spec' => { version => 2 },
