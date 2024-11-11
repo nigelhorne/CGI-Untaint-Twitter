@@ -4,6 +4,7 @@ Revision history for CGI-Untaint-Twitter
 	Use gtar to create a distribution on Macs
 	Use Test::DescribeMe to simplify tests
 	Use Test::Needs
+	Added GitHub Actions
 
 0.05	Tue  3 Dec 09:36:58 EST 2019
 	Fix RT108889
