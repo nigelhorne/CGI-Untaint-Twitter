@@ -14,7 +14,7 @@ CGI::Untaint::Twitter - Validate a Twitter ID in a CGI script
 =head1 DESCRIPTION
 
 C<CGI::Untaint::Twitter> is a Perl module designed to validate Twitter/X usernames within CGI applications.
-It extends C<CGI::Untaint::object> to sanitize and verify Twitter IDs using the L<Net::Twitter::Lite::WithAPIv1_1> library.
+It extends L<CGI::Untaint::object> to sanitize and verify Twitter IDs using the L<Net::Twitter::Lite::WithAPIv1_1> library.
 The module ensures that a provided username consists only of letters and digits, optionally removing a leading @.
 It then checks the validity of the username by querying Twitter’s API,
 provided the necessary authentication credentials (consumer_key, consumer_secret, access_token, access_token_secret) are set.
