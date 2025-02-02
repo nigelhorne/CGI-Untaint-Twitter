@@ -11,6 +11,15 @@ use Net::Twitter::Lite::WithAPIv1_1;
 
 CGI::Untaint::Twitter - Validate a Twitter ID in a CGI script
 
+=head1 DESCRIPTION
+
+C<CGI::Untaint::Twitter> is a Perl module designed to validate Twitter/X usernames within CGI applications.
+It extends C<CGI::Untaint::object> to sanitize and verify Twitter IDs using the L<Net::Twitter::Lite::WithAPIv1_1> library.
+The module ensures that a provided username consists only of letters and digits, optionally removing a leading @.
+It then checks the validity of the username by querying Twitter’s API,
+provided the necessary authentication credentials (consumer_key, consumer_secret, access_token, access_token_secret) are set.
+If the API rate limit is exceeded, the module assumes the username is valid to avoid disrupting users
+
 =head1 VERSION
 
 Version 0.05
@@ -142,25 +151,27 @@ Nigel Horne, C<< <njh at bandsman.co.uk> >>
 
 =head1 BUGS
 
-Twitter only allows 150 requests per hour.  If you exceed that,
-C<CGI::Untaint::Twitter> won't validate and will assume all ID's are valid.
+Please report any bugs or feature requests to the author.
+This module is provided as-is without any warranty.
+
+Twitter only allows 150 requests per hour.
+If you exceed that,
+C<CGI::Untaint::Twitter> won't validate and will assume all IDs are valid.
 
 Please report any bugs or feature requests to C<bug-cgi-untaint-twitter at rt.cpan.org>, or through
-the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=CGI-Untaint-Twitter>.  I will be notified, and then you'll
-automatically be notified of progress on your bug as I make changes.
-
+the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=CGI-Untaint-Twitter>.
+I will be notified, and then you'll
+automatically be notified of the progress on your bug as I make changes.
 
 =head1 SEE ALSO
 
-CGI::Untaint
-
+L<CGI::Untaint>
 
 =head1 SUPPORT
 
 You can find documentation for this module with the perldoc command.
 
     perldoc CGI::Untaint::Twitter
-
 
 You can also look for information at:
 
@@ -180,16 +191,13 @@ L<http://search.cpan.org/dist/CGI-Untaint-Twitter>
 
 =back
 
-
 =head1 ACKNOWLEDGEMENTS
-
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright 2012-2019 Nigel Horne.
+Copyright 2012-2025 Nigel Horne.
 
 This program is released under the following licence: GPL
-
 
 =cut
 
