@@ -34,8 +34,7 @@ our $access_token_secret;
 
 =head1 SYNOPSIS
 
-CGI::Untaint::Twitter is a subclass of CGI::Untaint used to
-validate if the given Twitter ID is valid.
+CGI::Untaint::Twitter is a subclass of L<CGI::Untaint> used to validate if the given Twitter/X ID is valid.
 
     use CGI::Info;
     use CGI::Untaint;
@@ -46,7 +45,7 @@ validate if the given Twitter ID is valid.
     # ...
     my $u = CGI::Untaint->new($params);
     my $tid = $u->extract(-as_Twitter => 'twitter');
-    # $tid will be lower case
+    # $tid will be lowercase
 
 =head1 SUBROUTINES/METHODS
 
@@ -161,7 +160,7 @@ C<CGI::Untaint::Twitter> won't validate and will assume all IDs are valid.
 Please report any bugs or feature requests to C<bug-cgi-untaint-twitter at rt.cpan.org>, or through
 the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=CGI-Untaint-Twitter>.
 I will be notified, and then you'll
-automatically be notified of the progress on your bug as I make changes.
+automatically be notified of the progress of your bug as I make changes.
 
 =head1 SEE ALSO
 
@@ -180,10 +179,6 @@ You can also look for information at:
 =item * RT: CPAN's request tracker
 
 L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=CGI-Untaint-Twitter>
-
-=item * CPAN Ratings
-
-L<http://cpanratings.perl.org/d/CGI-Untaint-Twitter>
 
 =item * Search CPAN
 
